@@ -20,13 +20,21 @@ submit.addEventListener("click",function(){
 
 function appendingToAList(){
     const li=document.createElement("li");
+    const a=document.createElement("a");
+        a.classList.add("cross")
+        a.innerText="X";
         li.innerHTML=text.value;
         list.appendChild(li);
+        li.appendChild(a)
         text.value="";
 }
 
 
 
 list.addEventListener("click",function(e){
-    list.removeChild(e.target)
+    if(e.target.classList=="cross"){
+        e.target.parentElement.remove();
+    }
+    
+    
 })
